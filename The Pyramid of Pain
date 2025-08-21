@@ -1,0 +1,72 @@
+# 🛡️ Cybersecurity Notes – Beginner Level
+
+These are my study notes while learning the basics of **threat detection** and the **Pyramid of Pain**.  
+
+---
+
+## 🔺 The Pyramid of Pain
+Created by **David Bianco**, the Pyramid of Pain shows how hard it is for an attacker (adversary) to change certain indicators of compromise (IoCs).  
+The higher you go, the more **pain** for the attacker.  
+
+### Layers (Bottom → Top)
+1. **Hash Values**  
+   - Unique fingerprints of files.  
+   - Easy for attackers to change by re-compiling malware.  
+
+2. **IP Addresses**  
+   - Numerical addresses for servers.  
+   - Attackers can switch IPs easily.  
+
+3. **Domain Names**  
+   - Human-readable names (e.g., `evilcorp.com`).  
+   - Harder to change (must buy/register domains).  
+
+4. **Network Artifacts**  
+   - Patterns of traffic, headers, protocol quirks.  
+   - Harder for attackers to modify without re-coding tools.  
+
+5. **Tools**  
+   - Malware, Remote Access Tools (RATs) like **Cobalt Strike**.  
+   - If defenders block these, attackers must buy/build new ones.  
+
+6. **TTPs (Tactics, Techniques, Procedures)**  
+   - **Tactics** = attacker goals (e.g., initial access).  
+   - **Techniques** = how they try (e.g., phishing).  
+   - **Procedures** = exact implementation (e.g., malicious Excel macro).  
+   - Most painful for attackers to change.  
+
+---
+
+## 🔑 Key Terms
+- **Adversary**: The attacker, threat actor, or hacking group.  
+- **Domain Name**: An address to access websites (`tryhackme.com`).  
+- **Punycode Attack**: Using Unicode characters to mimic legit domains (e.g., `adıdas.de`).  
+- **Fuzzy Hashes**: Also called *context-triggered piecewise hashes*; used to detect similar files.  
+- **Cobalt Strike**: A commercial Remote Access Tool often abused for C2 and data theft.  
+- **User-Agent String**: Identifies the browser/OS in HTTP requests.  
+- **POST Request**: HTTP method used to send data to a server (e.g., login forms).  
+- **CN (Common Name)**: Field in digital certificates, usually the domain the cert is issued for.  
+
+---
+
+## 🌍 URL Shorteners
+Attackers often hide malicious domains with shorteners (e.g., bit.ly, tinyurl).  
+- To **preview** where a TinyURL goes: add `preview.` before `tinyurl.com`.  
+  - Example:  
+    - `https://tinyurl.com/abcd1234`  
+    - `https://preview.tinyurl.com/abcd1234`  
+
+---
+
+## 🕵️ Example: Chimera Group
+- China-based hacking group active since 2018.  
+- Uses **Cobalt Strike** as their RAT for C2 and data exfiltration.  
+
+---
+
+## 📌 Summary
+- Low-level indicators (hashes, IPs) are easy for attackers to change.  
+- High-level indicators (TTPs) cause attackers real pain when defenders detect them.  
+- Focus defense on **behavior (TTPs)**, not just simple signatures.  
+
+---
